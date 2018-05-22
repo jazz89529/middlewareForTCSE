@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+	<script>
+		var user = [];
+		var user1 = {
+			userID: 1,
+			userName: 'David',
+			publicAddress: '0xde810a39ad519d088088cdec6ba9e64daff86c38'
+		};
+		var user2 = {
+			userID: 2,
+			userName: 'Mark',
+			publicAddress: '0xrf810a39ad519d088088cdec6ba8w64daff86c01'
+		}
+		user.push(user1);
+		user.push(user2);
+
+		var user = JSON.stringify(user);
+
+		localStorage.setItem('blockchainData', user);
+		
+		var data = localStorage.getItem('blockchainData');
+
+		console.log(data);
+	</script>
+</body>
+</html>
+

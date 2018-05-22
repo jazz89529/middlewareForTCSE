@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+</head>
+<body>
+	<script>
+		var blockchainConnectionParameter = JSON.stringify({ 
+			ip: 'http://localhost', // 預設是http://localhost:8545 
+			port: 8545//預設是8545
+		});
+		$(function(){
+			$.ajax({
+				type: "POST",
+			    async: false,   
+			    dataType: "json",
+			    url: "http://140.119.163.194/connection",// middleware's ip
+			    data: blockchainConnectionParameter,
+			    success: function (msg) {
+			        console.log(msg);
+			    },
+			    error: function (jqXHR, textStatus, errorThrown) {
+		            alert('error');
+		        }
+			})
+		});
+
+	</script>
+</body>
+</html>
+
+
+var sJson = JSON.stringify
+({ 
+sCustId: 123, 
+sActivityId: 456
+});

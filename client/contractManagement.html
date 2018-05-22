@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div>
+    <input id="contractFileUpload" type="file">
+    <input id="uploadFile" type="button" value="Upload File">
+	</div>
+</body>
+<script>
+	$(function(){
+		$('#uploadFile').on('click', function () {
+	        //## 宣告一個FormData
+	        var data = new FormData();
+	        //## 將檔案append FormData
+	        var files = $("#contractFileUpload").get(0).files;
+	        if (files.length > 0) {
+	            data.append("UploadedContract", files[0]);
+	        }
+
+	        //## 透過ajax方式Post 至Action
+	        var ajaxRequest = $.ajax({
+	            type: "POST",
+	            url: "http://140.119.163.194",// miiddleware's IP address
+	            dataType: "json",
+	            data: data
+	        })
+	        .done(function (data, textStatus) {
+	            console.log(data);
+	        })
+	        .fail(function() {
+	            alert( "error" );
+	    });
+    });
+	});
+	
+</script>
+</html>
